@@ -1,4 +1,4 @@
-# Ex. No:1b 			Study of Client Server Chat Applications
+<img width="1772" height="430" alt="image" src="https://github.com/user-attachments/assets/97180cc3-7b9f-472e-88b1-055ae847fe41" /># Ex. No:1b 			Study of Client Server Chat Applications
 
 ## Aim: 
 To perform a study on Client Server Chat Applications
@@ -76,8 +76,55 @@ Client-server chat applications are foundational to real-time communication over
 ## Program:
 Client Program
 ``` python
+server.py
+
+import socket
+
+# Server setup
+host = '127.0.0.1'   # Localhost
+port = 5000          # Port number
+
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_socket.bind((host, port))
+server_socket.listen(1)
+
+print("Server is listening on", host, ":", port)
+conn, addr = server_socket.accept()
+print("Connection from:", addr)
+
+while True:
+    data = conn.recv(1024).decode()
+    if not data:
+        break
+    print("Client:", data)
+    message = input("Server: ")
+    conn.send(message.encode())
+
+conn.close()
+
+client.py
+
+import socket
+
+# Client setup
+host = '127.0.0.1'   # Same as server
+port = 5000
+
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client_socket.connect((host, port))
+
+while True:
+    message = input("Client: ")
+    client_socket.send(message.encode())
+    data = client_socket.recv(1024).decode()
+    print("Server:", data)
+
+client_socket.close()
 
 ```
+## Output:
+<img width="1772" height="430" alt="image" src="https://github.com/user-attachments/assets/071b955f-5dc4-4bb9-a4cf-6397de3d8c42" />
+
 ## Result:
 
 Thus the study on Client Server Chat Applications has been performed
