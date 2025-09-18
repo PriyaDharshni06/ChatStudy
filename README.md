@@ -1,4 +1,4 @@
-<img width="1772" height="430" alt="image" src="https://github.com/user-attachments/assets/97180cc3-7b9f-472e-88b1-055ae847fe41" /># Ex. No:1b 			Study of Client Server Chat Applications
+# Ex. No:1b 			Study of Client Server Chat Applications
 
 ## Aim: 
 To perform a study on Client Server Chat Applications
